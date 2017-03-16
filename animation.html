@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	body{
+		background: url(images/mickey.jpg) no-repeat center center fixed;
+	background-size: cover;
+	}
+		button{
+			background-color: blue;
+		    border: none;
+		    color: white;
+		    padding: 15px 32px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		}
+		#container{
+			width: 100%;
+			height: 800px;
+			position: relative;
+			overflow: hidden;
+		}
+		#anime1{
+			width: 100px;
+			height: 100px;
+			top: 200px;
+			position: relative;
+		}
+		#anime2{
+			width: 200px;
+			height: 200px;
+			top: 400px;
+			position: relative;	
+		}
+		#anime3{
+			width: 100px;
+			height: 100px;
+			left: 500px;
+			position: relative;
+			top: -300px;
+		}
+
+		img{
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="move()">Click Me</button>
+	<div id="container">
+		<div id="anime1">
+		   <img src="images/basketball.png">
+		</div>
+		<div id="anime2">
+			<img src="images/basketball.png">
+		</div>
+		<div id="anime3">
+			<img src="images/basketball.png">
+		</div>
+	</div>
+<script>
+	function basketballOne(){
+		var elem = document.getElementById("anime1");
+		var pos = 1400;
+		var id = setInterval(frame, 10);
+		function frame(){
+			if (pos == -200){
+				clearInterval(id);
+			}
+			else{
+				pos--;
+				elem.style.left = pos + 'px';
+			}
+		}
+	}
+
+
+	function basketballTwo(){
+		var elem = document.getElementById("anime2");
+		var pos = 0;
+		var id = setInterval(frame, 5);
+		function frame(){
+			if (pos == 1400){
+				clearInterval(id);
+			}
+			else{
+				pos++;
+				elem.style.left = pos + 'px';
+			}
+		}
+	}
+
+
+	function basketballThree(){
+		var elem = document.getElementById("anime3");
+		var pos = -500;
+		var id = setInterval(frame, 7);
+		function frame(){
+			if (pos == 800){
+				clearInterval(id);
+			}
+			else{
+				pos++;
+				elem.style.top = pos + 'px';
+			}
+		}
+	}
+
+	function move(){
+		basketballTwo();
+		basketballOne();
+		basketballThree();
+		setInterval(basketballOne, 15000);
+		setInterval(basketballTwo, 7000);
+		setInterval(basketballThree, 7000);
+	}
+
+</script>
+</body>
+</html>
